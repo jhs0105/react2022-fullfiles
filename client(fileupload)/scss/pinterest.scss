@@ -1,0 +1,135 @@
+@import "mixins";
+.category {
+  margin: 100px auto;
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      width: 180px;
+      height: 60px;
+      background-color: #111;
+      color: #fff;
+      border-radius: 100px;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      overflow: hidden;
+      &.on {
+        @include longShadow(40, darken(#f00, 15));
+        background-color: #f00;
+      }
+    }
+  }
+}
+
+.list {
+  ul {
+    width: 1400px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 25%; //margin쓰면 안된다.
+      padding: 10px;
+      box-sizing: border-box;
+      a {
+        display: block;
+        background-color: #fff;
+        padding: 10px;
+        img {
+          width: 100%;
+        }
+        .info {
+          h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px 0;
+          }
+          .desc {
+            color: #666;
+            line-height: 1.5;
+          }
+          .category {
+            margin-top: 20px;
+            margin-bottom: 0;
+            span {
+              display: inline-block;
+              margin-right: 5px;
+              padding: 7px 20px;
+              font-size: 12px;
+              background-color: #333;
+              color: #fff;
+              border-radius: 100px;
+              text-transform: uppercase;
+              font-weight: 500;
+              line-height: 1;
+              overflow: hidden;
+              @include longShadow(20, darken(#333, 15));
+            }
+          }
+          .footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            .point {
+              color: #f00;
+
+              font-size: 32px;
+              font-weight: 700;
+            }
+            .author {
+              font-size: 24px;
+              font-weight: 700;
+              nav-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1000px;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
+  @include longShadow(50, darken(#f00, 15));
+}
+
+.coordinate {
+  left: 50px;
+  top: 150px;
+  position: fixed;
+  display: none;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  span {
+    color: #fff;
+    display: inline-block;
+    width: 80px;
+  }
+}

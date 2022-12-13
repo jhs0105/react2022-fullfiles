@@ -1,0 +1,155 @@
+@charset "UTF-8";
+body {
+  font-family: "Roboto", "Noto Sans KR", "돋움";
+  color: #111;
+  font-size: 16px;
+  background-color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  vertical-align: top;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+#header {
+  height: 50px;
+  background-color: #fff;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.contents .user {
+  display: flex;
+  padding: 10px;
+  background-color: #999;
+}
+.contents .user .btn-enter {
+  padding: 0 20px;
+  background-color: rgb(255, 196, 0);
+  border-radius: 10px;
+  color: #111;
+  margin-left: 10px;
+}
+.contents .user label {
+  display: flex;
+  flex-grow: 1;
+}
+.contents .user label span {
+  padding: 15px 20px;
+  background-color: #111;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.contents .user label input {
+  flex-grow: 1;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.contents .msg-box {
+  background-color: #b2c7d9;
+  height: 500px;
+  overflow-y: auto;
+}
+.contents .msg-box .msg-list .enter {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  opacity: 0.5;
+}
+.contents .msg-box .msg-list li {
+  display: flex;
+  font-size: 14px;
+  padding: 20px;
+}
+.contents .msg-box .msg-list li .profile {
+  background: #fff;
+  border-radius: 100px;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.contents .msg-box .msg-list li .profile img {
+  width: 100%;
+  height: 100%;
+}
+.contents .msg-box .msg-list li .msg-item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.contents .msg-box .msg-list li .msg-item .msg {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+.contents .msg-box .msg-list li .msg-item .time {
+  font-size: 12px;
+}
+.contents .msg-box .msg-list .me {
+  flex-direction: row-reverse;
+}
+.contents .msg-box .msg-list .me .msg-item {
+  margin-right: 10px;
+  align-items: flex-end;
+}
+.contents .msg-box .msg-list .me .msg-item .msg {
+  margin-top: 5px;
+}
+.contents .msg-box .msg-list .me .msg-item .name {
+  display: none;
+}
+.contents .send-box {
+  height: 200px;
+  position: relative;
+}
+.contents .send-box textarea {
+  width: 100%;
+  height: 100%;
+  padding: 20px 80px 20px 20px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  line-height: 1.5;
+  font-family: inherit;
+  font-size: 16px;
+}
+.contents .send-box .btn {
+  position: absolute;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #ddd;
+  color: #999;
+  right: 20px;
+  top: 10px;
+  pointer-events: none;
+}
+.contents .send-box .btn.on {
+  pointer-events: auto;
+  background-color: rgb(255, 196, 0);
+  color: #111;
+}

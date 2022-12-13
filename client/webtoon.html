@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <script src="./js/gsap/gsap.min.js"></script>
+    <script src="./js/gsap/ScrollToPlugin.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h2>수요 전체 웹툰</h2>
+    </header>
+    <div class="loading">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="list"></div>
+    <script>
+      const list = document.querySelector(".list");
+      const ul = document.createElement("ul");
+      const loading = document.querySelector(".lds-spinner");
+      list.appendChild(ul);
+      fetch("http://127.0.0.1:8081/naver/webtoon")
+        .then((response) => {
+          return response.json(); //return 해야 promise가 리턴됨
+        })
+        .then((data) => {
+          loading.classList.add("hide");
+          let tempHtml = "";
+          data.forEach((item, idx) => {
+            //console.log(item);
+            tempHtml += `<li>
+              <a href=https://comic.naver.com${item.link} target="_blank">
+              <img src="${item.img}">
+              <div class="info">
+                <h2>${item.title}</h2>
+                <dl>
+                  <dt>작가</dt>
+                  <dd>${item.artist}</dd>
+                </dl>
+                <dl>
+                  <dt>평점</dt>
+                  <dd>${item.score}</dd>
+                </dl></a>  
+              </li>`;
+          });
+          setTimeout(() => {
+            ul.innerHTML = tempHtml;
+            gsap.from(".list li", { scale: 0, stagger: { each: 0.01 } });
+          }, 500);
+        });
+    </script>
+  </body>
+</html>

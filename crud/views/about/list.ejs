@@ -1,0 +1,24 @@
+<%- include("../include/sub-header") %>
+
+<div class="container">
+  <p>Total : <%= list.length %></p>
+  <div class="bbs list">
+    <div class="bbs-header">
+      <span class="no">번호</span>
+      <span class="subject">제목</span>
+      <span class="writer" data-label="작성자">작성자</span>
+      <span class="date" data-label="작성일">작성일</span>
+    </div>
+    <ul class="bbs-body">
+      <% list.forEach((item,idx)=>{ %>
+      <li>
+        <span class="no"><%= item.no %></span>
+        <span class="subject"><a href=""><%= item.subject %></a></span>
+        <span class="writer" data-label="작성자"><%= item.writer %></span>
+        <span class="date" data-label="작성일"><%= item.date %></span>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+<%- include("../include/sub-footer") %>

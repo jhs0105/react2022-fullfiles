@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/insert" method="POST" enctype="multipart/form-data">
+      <div>
+        <label><span>영화제목</span><input type="text" name="title" /></label>
+      </div>
+      <div>
+        <label><span>개봉날짜</span><input type="text" name="date" /></label>
+      </div>
+      <div>
+        <label>
+          <span>장르</span>
+          <ul>
+            <li>스릴러<input type="checkbox" name="type" value="스릴러" /></li>
+            <li>로맨스<input type="checkbox" name="type" value="로맨스" /></li>
+            <li>액션<input type="checkbox" name="type" value="액션" /></li>
+            <li>호러<input type="checkbox" name="type" value="호러" /></li>
+            <li>코메디<input type="checkbox" name="type" value="코메디" /></li>
+          </ul>
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>줄거리</span>
+          <textarea name="summary" id="" cols="30" rows="10"></textarea>
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>평점</span>
+          <input type="text" name="point" />
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>포스터</span>
+          <input type="file" name="poster" />
+        </label>
+      </div>
+      <div>
+        <button>확인</button>
+        <button type="reset">취소</button>
+      </div>
+    </form>
+  </body>
+</html>

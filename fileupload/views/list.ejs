@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <% movieList.forEach((item,idx)=>{ %>
+      <li>
+        <div class="img-box">
+          <img src="<%= item.poster %>" alt="" />
+        </div>
+        <dl>
+          <dt>제목</dt>
+          <dd><%= item.title %></dd>
+        </dl>
+        <dl>
+          <dt>개봉일자</dt>
+          <dd><%= item.date %></dd>
+        </dl>
+        <dl>
+          <dt>장르</dt>
+          <dd><%= item.type %></dd>
+        </dl>
+        <dl>
+          <dt>줄거리</dt>
+          <dd><%= item.summary %></dd>
+        </dl>
+        <dl>
+          <dt>평점</dt>
+          <dd><%= item.point %></dd>
+        </dl>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

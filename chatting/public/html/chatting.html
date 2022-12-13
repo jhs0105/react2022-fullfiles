@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <header id="header">GGAGGAO TALK</header>
+    <div class="contents">
+      <div class="user">
+        <label><span>대화명</span><input type="text" id="name" placeholder="대화명을 입력해주세요" /></label>
+        <button class="btn-enter">입장</button>
+      </div>
+      <div class="msg-box">
+        <ul class="msg-list">
+          <!-- <li class="other">
+            <div class="profile">
+              <img src="../images/user (1).png" alt="" />
+            </div>
+            <div class="msg-item">
+              <span class="name">Jihye</span>
+              <div class="inner">
+                <div class="msg">안녕하세요</div>
+                <div class="time">오전 11:30</div>
+              </div>
+            </div>
+          </li>
+          <li class="me">
+            <div class="profile">
+              <img src="../images/user.png" alt="" />
+            </div>
+            <div class="msg-item">
+              <span class="name">Jihye</span>
+              <div class="inner">
+                <div class="msg">안녕하세요</div>
+                <div class="time">오전 11:30</div>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+      <div class="send-box">
+        <textarea name="" id="msg" cols="30" rows="10"></textarea>
+        <button class="btn btn-send">전송</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const socket = io();
+
+    const btnSend = document.querySelector(".btn-send");
+    const msg = document.querySelector("#msg");
+    const name = document.querySelector("#name");
+    const msgList = document.querySelector(".msg-list");
+    const msgBox = document.querySelector(".msg-box");
+    const btnEnter = document.querySelector(".btn-enter");
+
+    //13이면서 길이가 0보다 커야 한다.
+    //shift가 눌러져 있으면 날아가지 않는다.
+    msg.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        if (msg.value.trim().length <= 0) {
+          e.preventDefault();
+        }
+      }
+    });
+
+    msg.addEventListener("keyup", (e) => {
+      //console.log(e);
+      //console.log(msg.value.trim().length);
+      if (e.keyCode === 13) {
+        if (e.shiftKey) {
+          return;
+        }
+        if (msg.value.trim().length <= 0) {
+          msg.value = "";
+          msg.focus();
+          return;
+        }
+        socket.emit("yaho", { name: name.value, msg: msg.value.trim().replace(/\n/g, "<br>") });
+        msg.value = "";
+        msg.focus();
+      }
+
+      if (msg.value.trim().length > 0) {
+        btnSend.classList.add("on");
+      } else {
+        btnSend.classList.remove("on");
+      }
+
+      // if (msg.value.trim().length > 0) {
+      //   btnSend.classList.add("on");
+      //   if (e.keyCode === 13 && !e.shiftKey) {
+      //     //socket.emit("yaho", { name: name.value, msg: msg.value.trim().replaceAll("\n", "<br>") });
+      //     //엔터를 치면 자동으로 \n이 생김 그것을 <br>로 바꾼다.
+      //     socket.emit("yaho", { name: name.value, msg: msg.value.trim().replace(/\n/g, "<br>") });
+      //     //console.log(msg.value);
+      //     msg.value = "";
+      //     msg.focus();
+      //   } else {
+      //     msg.value = "";
+      //     msg.focus();
+      //   }
+      // } else {
+      //   btnSend.classList.remove("on");
+      // }
+    });
+
+    btnEnter.addEventListener("click", () => {
+      socket.emit("enter", { name: name.value });
+    });
+    socket.on("enterName", (serverData) => {
+      const li = document.createElement("li");
+      li.textContent = `${serverData.name}님이 입장하셨습니다`;
+      li.classList.add("enter");
+      msgList.appendChild(li);
+      msgBox.scrollTo(0, msgList.offsetHeight);
+    });
+
+    btnSend.addEventListener("click", () => {
+      socket.emit("yaho", { name: name.value, msg: msg.value });
+      msg.value = "";
+      msg.focus();
+    });
+    socket.on("serverYaho", (serverData) => {
+      console.log(serverData.name, "===", serverData.msg);
+      const li = document.createElement("li");
+      // let className = "";
+      // if (name === serverData.name) {
+      //   className = "me";
+      // } else {
+      //   className = "other";
+      // }
+      const className = name.value === serverData.name ? "me" : "other";
+      li.classList.add(className);
+      li.innerHTML = `
+                        <div class="profile">
+                          <img src="../images/user.png" alt="" />
+                        </div>
+                        <div class="msg-item">
+                          <span class="name">${serverData.name}</span>
+                          <div class="inner">
+                            <div class="msg">${serverData.msg}</div>
+                            <div class="time">${serverData.time}</div>
+                          </div>
+                        </div>
+                      `;
+      msgList.appendChild(li);
+      console.log(msgList.offsetHeight);
+      msgBox.scrollTo(0, msgList.offsetHeight); //msgList의 높이를 넣어준다
+    });
+
+    //클라이언트가 메세지 보낼때 쓰는 메서드 emit()
+    //socket.emit("yaho", { name: "장성호", msg: "안녕" });
+  </script>
+</html>

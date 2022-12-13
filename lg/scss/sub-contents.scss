@@ -1,0 +1,338 @@
+@import "vars";
+@import "mixins";
+
+.tab {
+  margin-top: 100px;
+  &.tab02 .menu li {
+    flex-basis: 100% / 2;
+  }
+  &.tab03 .menu li {
+    flex-basis: 100% / 3;
+  }
+  &.tab04 .menu li {
+    flex-basis: 100% / 4;
+  }
+  &.tab05 .menu li {
+    flex-basis: 100% / 5;
+  }
+  &.tab06 .menu li {
+    flex-basis: 100% / 6;
+  }
+  &.tab07 .menu li {
+    flex-basis: 100% / 7;
+  }
+  &.tab08 .menu li {
+    flex-basis: 100% / 8;
+  }
+  &.tab09 .menu li {
+    flex-basis: 100% / 9;
+  }
+
+  .menu {
+    display: flex;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $main-color;
+      z-index: -1;
+    }
+    li {
+      height: 80px;
+      @include flex;
+      box-sizing: border-box;
+      flex-basis: 20%; // 자식의 넓이 지정하기....
+      font-size: $h3;
+      cursor: pointer;
+      &.on {
+        border: 2px solid $main-color;
+        border-bottom: none;
+        border-radius: 20px 20px 0 0;
+        background-color: #fff;
+        color: $main-color;
+      }
+    }
+  }
+  .contents {
+    margin: 80px 0;
+    > li {
+      display: none;
+      position: relative;
+      padding: 50px 0;
+      &:before {
+        content: "";
+        display: block;
+        width: 1px;
+        top: 0;
+        height: 100%;
+        position: absolute;
+        left: 169px;
+        background-color: $main-color;
+      }
+      &.on {
+        display: block;
+      }
+      .year {
+        li {
+          display: flex;
+          margin-bottom: 50px;
+          font-size: $h4;
+          &:nth-last-child(1) {
+            margin-bottom: 0;
+          }
+          p {
+            padding-left: 100px;
+            margin-left: 50px;
+            position: relative;
+            display: flex;
+            flex-grow: 1;
+            &:hover:before {
+              background-color: $main-color;
+            }
+            &:before {
+              content: "";
+              display: block;
+              width: 12px;
+              height: 12px;
+              border: 3px solid $main-color;
+              border-radius: 100px;
+              position: absolute;
+              left: 0;
+              transform: translateX(-50%);
+              background-color: #fff;
+              transition: all 0.25s ease;
+            }
+          }
+          .date {
+            flex-basis: 120px;
+            color: $main-color;
+          }
+          .current {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+#sub-contents-wrap {
+  .sns-list {
+    margin-top: 100px;
+    display: flex;
+    li {
+      margin-right: 20px;
+    }
+  }
+}
+#sub-contents-title {
+  padding: 180px 0 100px;
+  background-color: darken(#f5f1ed, 20);
+  h2 {
+    font-size: $h1;
+    margin-bottom: 50px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+.introduce {
+  .diagram {
+    > ul {
+      display: flex;
+      justify-content: center;
+      margin-top: 150px;
+      > li {
+        width: 25%;
+        background-color: rgba(221, 49, 86, 0.9);
+        border-radius: 1000px;
+        position: relative;
+        margin: 0 -20px;
+        color: #fff;
+        &:nth-child(2n) {
+          background-color: rgba(200, 200, 200, 0.75);
+          color: #111;
+          z-index: -1;
+        }
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 100%;
+        }
+        .contents {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          text-align: center;
+          padding-top: 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          h3 {
+            font-size: $h2;
+            padding: 20px 10px;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+          }
+          .list {
+            padding: 10px 0;
+            li {
+              padding: 10px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .philosophy {
+    margin-top: 150px;
+    line-height: 1.5;
+    text-align: center;
+    p {
+      margin-top: 30px;
+    }
+    strong {
+      font-weight: 700;
+      font-size: $h2;
+    }
+  }
+}
+.foundation {
+  .list {
+    li {
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 150px 0;
+      background-repeat: no-repeat;
+      background-size: 30vw;
+      background-blend-mode: multiply;
+      &:nth-child(1) {
+        background-image: url("../images/sub-contents/founder-01.png");
+      }
+      &:nth-child(2) {
+        background-image: url("../images/sub-contents/founder-02.png");
+      }
+      &:nth-child(3) {
+        background-image: url("../images/sub-contents/founder-03.png");
+      }
+
+      &:nth-child(odd) {
+        background-color: #f0f4f6;
+        background-position: 80% 100%;
+      }
+      &:nth-child(even) {
+        background-position: 20% 100%;
+        .container {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+
+      .title-box {
+        .name {
+          font-size: $h2;
+          font-weight: 500;
+          margin-bottom: 20px;
+        }
+        .position {
+          color: $main-color;
+          font-size: $h4;
+          line-height: 1.5;
+        }
+      }
+      .message {
+        margin-top: 120px;
+        blockquote {
+          font-size: $h1;
+          font-weight: 700;
+          line-height: 1.5;
+          position: relative;
+          margin-bottom: 50px;
+          &:before {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: url("../images/sub-contents/icon-quote.svg") no-repeat;
+            position: absolute;
+            left: -20px;
+            top: -10px;
+          }
+        }
+        p {
+          color: #999;
+          line-height: 1.5;
+          font-size: $h4;
+        }
+      }
+    }
+  }
+}
+
+.location {
+  .map {
+    height: 600px;
+    background-color: #f00;
+    margin-top: 100px;
+  }
+  .customoverlay {
+    transform: translateY(-80px);
+    a {
+      display: flex;
+      color: #111;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: $main-color;
+      &:after {
+        content: "\f054";
+        font-family: "FontAwesome";
+        @include flex;
+        width: 38px;
+        color: #fff;
+      }
+      span {
+        display: block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.overlay {
+  transform: translateY(-80px);
+  background-color: #111;
+  border-radius: 10px;
+  padding: 15px;
+  li {
+    padding: 10px 20px;
+    background-color: #fff;
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+@media all and (max-width: 1280px) {
+  // 여기다가 1280보다 작아졌을때 어떤 css 쓸건지 적용
+}
+
+@media all and (max-width: 960px) {
+  // 여기다가 960px보다 작아졌을때 어떤 css 쓸건지 적용
+}
+
+@media all and (max-width: 640px) {
+  // 여기다가 640px보다 작아졌을때 어떤 css 쓸건지 적용
+}

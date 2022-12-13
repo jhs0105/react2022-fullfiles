@@ -1,0 +1,36 @@
+<%- include("../include/sub-header") %>
+<!-- 서버로 내용을 전달하는 방법 1. ajax 2.form -->
+<div class="container">
+  <form action="/member/join" id="write-form" method="POST">
+    <div class="bbs write">
+      <div class="row">
+        <span>이름</span>
+        <input type="text" id="subject" name="name" />
+      </div>
+      <div class="row">
+        <span>아이디</span>
+        <input type="text" id="subject" name="id" />
+      </div>
+      <div class="row">
+        <span>패스워드</span>
+        <input type="password" id="writer" name="password" />
+      </div>
+      <div class="row">
+        <span>H.P</span>
+        <input type="phone" id="writer" name="phone" />
+      </div>
+      <div class="row">
+        <span>주소</span>
+        <input type="text" id="writer" name="address" />
+      </div>
+
+      <div class="btns">
+        <button class="btn btn-write">글쓰기</button>
+        <button class="btn btn-reset" type="reset">취소</button>
+      </div>
+    </div>
+  </form>
+</div>
+<%- include("../include/sub-footer") %>
+<!-- 
+서버에서는 name으로 받는다. name이 꼭 있어야 한다 -->

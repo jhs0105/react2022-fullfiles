@@ -1,0 +1,28 @@
+<%- include("../include/sub-header") %>
+
+<div class="container">
+  <p>Total : <%= list.length %></p>
+  <div class="bbs list">
+    <div class="bbs-header">
+      <span class="no">번호</span>
+      <span class="id">아이디</span>
+      <span class="name">이름</span>
+      <span class="phone">연락처</span>
+      <span class="address">주소</span>
+      <span class="date">작성일</span>
+    </div>
+    <ul class="bbs-body">
+      <% list.forEach((item,idx)=>{ %>
+      <li>
+        <span class="no"><%= item.no %></span>
+        <span class="id"><a href=""><%= item.id %></a></span>
+        <span class="name"><%= item.name %></span>
+        <span class="phone"><%= item.phone %></span>
+        <span class="address"><%= item.address %></span>
+        <span class="date" data-label="작성일"><%= item.date %></span>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+<%- include("../include/sub-footer") %>

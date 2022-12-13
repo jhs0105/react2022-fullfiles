@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header id="header">
+      <h2>main</h2>
+      <nav id="gnb">
+        <% if(!userInfo) { %>
+        <ul>
+          <li><a href="/user/login">로그인</a></li>
+          <li><a href="/user/join">회원가입</a></li>
+        </ul>
+        <% } else {%>
+        <ul>
+          <li><a href="/user/info"><%= userInfo.name %></a></li>
+          <li><a href="/user/logout">로그아웃</a></li>
+        </ul>
+        <% } %>
+      </nav>
+    </header>
+  </body>
+</html>

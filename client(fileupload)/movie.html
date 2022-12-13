@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <div class="loading">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="list"></div>
+    <script>
+      const list = document.querySelector(".list");
+      const ul = document.createElement("ul");
+      const loading = document.querySelector(".lds-ellipsis");
+      list.appendChild(ul);
+      fetch("http://127.0.0.1:8081/daum/movie")
+        .then((response) => response.json())
+        .then((data) => {
+          loading.classList.add("hide");
+          let tempHtml = "";
+          data.forEach((item, idx) => {
+            tempHtml += `<li>
+              <div class="img-box">
+                <img src="${item.img}">
+                <div class="info">
+                  <dl>
+                    <dt>개봉일</dt>
+                    <dd>${item.info.openDate}</dd>
+                  </dl>
+                  <dl>
+                    <dt>장르</dt>
+                    <dd>${item.info.genre}</dd>
+                  </dl>
+                  <dl>
+                    <dt>등급</dt>
+                    <dd>${item.info.grade}</dd>
+                  </dl>
+                  <dl>
+                    <dt>감독</dt>
+                    <dd>${item.info.director}</dd>
+                  </dl>
+                  <dl>
+                    <dt>주연</dt>
+                    <dd>${item.info.mainRole}</dd>
+                  </dl>
+                </div>
+              </div>
+              <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+            </li>`;
+          });
+          setTimeout(() => {
+            ul.innerHTML = tempHtml;
+          }, 500);
+        });
+    </script>
+  </body>
+</html>

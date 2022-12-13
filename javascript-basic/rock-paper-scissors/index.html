@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no " />
+    <title>ROCK-PAPER-SCISSORS</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rockpaper-game01.netlify.app/" />
+    <meta property="og:title" content="가위 바위 보" />
+    <meta property="og:image" content="https://rockpaper-game01.netlify.app/images/rock-paper-scissors.png" />
+    <meta property="og:description" content="가위 바위 보 게임" />
+    <meta property="og:site_name" content="rock paper scissors" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1><strong>ROCK-PAPER-SCISSORS</strong></h1>
+    </header>
+
+    <div id="com">
+      <ul>
+        <li><img src="images/rock.svg" alt="" /></li>
+        <li><img src="images/paper.svg" alt="" /></li>
+        <li><img src="images/scissors.svg" alt="" /></li>
+      </ul>
+    </div>
+    <div id="player">
+      <ul>
+        <li data-id="0" data-value="rock"><img src="images/rock.svg" alt="" /></li>
+        <li data-id="1" data-value="paper"><img src="images/paper.svg" alt="" /></li>
+        <li data-id="2" data-value="scissors"><img src="images/scissors.svg" alt="" /></li>
+      </ul>
+    </div>
+    <div id="result">
+      <ul>
+        <!-- <li class="win">W</li>
+        <li class="lose">L</li>
+        <li class="draw">D</li> -->
+      </ul>
+    </div>
+    <div id="cover">
+      <h1>you <strong>Win</strong></h1>
+      <h2>To Be <strong>Continue~~</strong></h2>
+      <button id="btnRestart">restart game</button>
+    </div>
+  </body>
+</html>
+

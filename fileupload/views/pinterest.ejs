@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/portfolio/insert" method="POST" enctype="multipart/form-data">
+      <div>
+        <label><span>제목</span><input type="text" name="title" /></label>
+      </div>
+      <div>
+        <label>
+          <span>카테고리</span>
+          <ul>
+            <li>paint<input type="checkbox" name="category" value="paint" /></li>
+            <li>sketch<input type="checkbox" name="category" value="sketch" /></li>
+            <li>photo<input type="checkbox" name="category" value="photo" /></li>
+          </ul>
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>설명</span>
+          <textarea name="summary" id="" cols="30" rows="10"></textarea>
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>포스터</span>
+          <input type="file" name="poster" />
+        </label>
+      </div>
+      <div>
+        <button type="submit">확인</button>
+        <button type="reset">취소</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+.category {
+  margin: 100px auto;
+}
+.category ul {
+  display: flex;
+  justify-content: center;
+}
+.category ul li {
+  width: 180px;
+  height: 60px;
+  background-color: #111;
+  color: #fff;
+  border-radius: 100px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+.category ul li.on {
+  text-shadow: 1px 1px 0px #b30000,2px 2px 0px #b30000,3px 3px 0px #b30000,4px 4px 0px #b30000,5px 5px 0px #b30000,6px 6px 0px #b30000,7px 7px 0px #b30000,8px 8px 0px #b30000,9px 9px 0px #b30000,10px 10px 0px #b30000,11px 11px 0px #b30000,12px 12px 0px #b30000,13px 13px 0px #b30000,14px 14px 0px #b30000,15px 15px 0px #b30000,16px 16px 0px #b30000,17px 17px 0px #b30000,18px 18px 0px #b30000,19px 19px 0px #b30000,20px 20px 0px #b30000,21px 21px 0px #b30000,22px 22px 0px #b30000,23px 23px 0px #b30000,24px 24px 0px #b30000,25px 25px 0px #b30000,26px 26px 0px #b30000,27px 27px 0px #b30000,28px 28px 0px #b30000,29px 29px 0px #b30000,30px 30px 0px #b30000,31px 31px 0px #b30000,32px 32px 0px #b30000,33px 33px 0px #b30000,34px 34px 0px #b30000,35px 35px 0px #b30000,36px 36px 0px #b30000,37px 37px 0px #b30000,38px 38px 0px #b30000,39px 39px 0px #b30000,40px 100px 0px #b30000;
+  background-color: #f00;
+}
+
+.list ul {
+  width: 1400px;
+  margin: 100px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list ul li {
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.list ul li a {
+  display: block;
+  background-color: #fff;
+  padding: 10px;
+}
+.list ul li a img {
+  width: 100%;
+}
+.list ul li a .info h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.list ul li a .info .desc {
+  color: #666;
+  line-height: 1.5;
+}
+.list ul li a .info .category {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.list ul li a .info .category span {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 7px 20px;
+  font-size: 12px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1;
+  overflow: hidden;
+  text-shadow: 1px 1px 0px #0d0d0d,2px 2px 0px #0d0d0d,3px 3px 0px #0d0d0d,4px 4px 0px #0d0d0d,5px 5px 0px #0d0d0d,6px 6px 0px #0d0d0d,7px 7px 0px #0d0d0d,8px 8px 0px #0d0d0d,9px 9px 0px #0d0d0d,10px 10px 0px #0d0d0d,11px 11px 0px #0d0d0d,12px 12px 0px #0d0d0d,13px 13px 0px #0d0d0d,14px 14px 0px #0d0d0d,15px 15px 0px #0d0d0d,16px 16px 0px #0d0d0d,17px 17px 0px #0d0d0d,18px 18px 0px #0d0d0d,19px 19px 0px #0d0d0d,20px 100px 0px #0d0d0d;
+}
+.list ul li a .info .footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.list ul li a .info .footer .point {
+  color: #f00;
+  font-size: 32px;
+  font-weight: 700;
+}
+.list ul li a .info .footer .author {
+  font-size: 24px;
+  font-weight: 700;
+  nav-right: 10px;
+}
+
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1000px;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-shadow: 1px 1px 0px #b30000,2px 2px 0px #b30000,3px 3px 0px #b30000,4px 4px 0px #b30000,5px 5px 0px #b30000,6px 6px 0px #b30000,7px 7px 0px #b30000,8px 8px 0px #b30000,9px 9px 0px #b30000,10px 10px 0px #b30000,11px 11px 0px #b30000,12px 12px 0px #b30000,13px 13px 0px #b30000,14px 14px 0px #b30000,15px 15px 0px #b30000,16px 16px 0px #b30000,17px 17px 0px #b30000,18px 18px 0px #b30000,19px 19px 0px #b30000,20px 20px 0px #b30000,21px 21px 0px #b30000,22px 22px 0px #b30000,23px 23px 0px #b30000,24px 24px 0px #b30000,25px 25px 0px #b30000,26px 26px 0px #b30000,27px 27px 0px #b30000,28px 28px 0px #b30000,29px 29px 0px #b30000,30px 30px 0px #b30000,31px 31px 0px #b30000,32px 32px 0px #b30000,33px 33px 0px #b30000,34px 34px 0px #b30000,35px 35px 0px #b30000,36px 36px 0px #b30000,37px 37px 0px #b30000,38px 38px 0px #b30000,39px 39px 0px #b30000,40px 40px 0px #b30000,41px 41px 0px #b30000,42px 42px 0px #b30000,43px 43px 0px #b30000,44px 44px 0px #b30000,45px 45px 0px #b30000,46px 46px 0px #b30000,47px 47px 0px #b30000,48px 48px 0px #b30000,49px 49px 0px #b30000,50px 100px 0px #b30000;
+}
+
+.coordinate {
+  left: 50px;
+  top: 150px;
+  position: fixed;
+  display: none;
+}
+.coordinate label {
+  display: block;
+  margin-bottom: 5px;
+}
+.coordinate span {
+  color: #fff;
+  display: inline-block;
+  width: 80px;
+}
